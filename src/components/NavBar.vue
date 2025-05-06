@@ -1,0 +1,165 @@
+<template lang="">
+  <div class="navbar">
+    <div class="navbar-menu">
+      <div class="navbar-menu left">
+        <v-icon class="menu-icon" color="success" icon="mdi-home" size="x-large" />
+      </div>
+      <div class="navbar-menu mid">
+        <v-icon class="menu-icon" color="success" icon="mdi-home" size="x-large" />
+      </div>
+      <div class="navbar-menu right">
+        <v-icon class="menu-icon" color="success" icon="mdi-home" size="x-large" />
+      </div>
+    </div>
+
+    <v-btn
+      class="toggle-button mb-4"
+      icon
+      size="large"
+      variant="text"
+      @click="toggleMenu"
+    >
+      <v-icon class="toggle-button" icon="mdi-home" size="x-large" />
+    </v-btn>
+  </div>
+</template>
+
+<script lang="ts">
+  export default {
+    data () {
+      return {
+        isOpen: false,
+      }
+    },
+    mounted () {
+      const menu = document.querySelector('.navbar-menu') as HTMLElement
+      const toggleButton = document.querySelector('.toggle-button') as HTMLElement
+      document.addEventListener('click', event => {
+        if (!menu.contains(event.target as Node) && !toggleButton.contains(event.target as Node)) {
+          console.log('click outside')
+          this.toggleMenu(true)
+        }
+      })
+    },
+    methods: {
+      toggleMenu (forceClose: boolean = false) {
+        console.log('toggleMenu', forceClose)
+        if (forceClose === true) {
+          this.isOpen = false
+        } else {
+          this.isOpen = !this.isOpen
+        }
+        // eslint-disable-next-line no-undef
+        console.log('toggleMenu', this.isOpen)
+        const menu = document.querySelectorAll('.navbar-menu') as NodeListOf<HTMLElement>
+        const toggleButton = document.querySelector('.toggle-button') as HTMLElement
+        if (this.isOpen) {
+          toggleButton.style.bottom = '-200px'
+          menu.forEach((item, index) => {
+            if (index !== 0) {
+              item.style.height = '360px'
+            }
+          })
+        } else {
+          toggleButton.style.bottom = '0px'
+          menu.forEach((item, index) => {
+            if (index !== 0) {
+              item.style.height = '0px'
+            }
+          })
+        }
+      },
+    },
+  }
+</script>
+<style lang="scss">
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  .navbar-menu {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -110px;
+    height: 360px;
+    width: 450px;
+    opacity: 0.3;
+    border-radius: 200px;
+    transition: 0.4s ease-in-out;
+    @media only screen and (max-width: 640px) {
+      width: 300px;
+      bottom: -125px;
+    }
+    &.left {
+      width: 150px;
+      height: 0px;
+      left: 0;
+      transform: translateX(0);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: rgb(180, 180, 180);
+      cursor: pointer;
+      -webkit-box-shadow: inset 20px 20px 76px -24px rgba(66, 68, 90, 1);
+      -moz-box-shadow: inset 20px 20px 76px -24px rgba(66, 68, 90, 1);
+      box-shadow: inset 20px 20px 76px -24px rgba(66, 68, 90, 1);
+      @media only screen and (max-width: 640px) {
+        width: 100px;
+      }
+      &:hover {
+        opacity: 0.99;
+        transition: 0.2s ease-in-out;
+      }
+    }
+    &.mid {
+      width: 150px;
+      height: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0px;
+      background-color: rgb(180, 180, 180);
+      cursor: pointer;
+      -webkit-box-shadow: inset 0px 20px 76px -24px rgba(66, 68, 90, 1);
+      -moz-box-shadow: inset 0px 20px 76px -24px rgba(66, 68, 90, 1);
+      box-shadow: inset 0px 20px 76px -24px rgba(66, 68, 90, 1);
+      @media only screen and (max-width: 640px) {
+        width: 100px;
+      }
+      &:hover {
+        opacity: 0.99;
+        transition: 0.2s ease-in-out;
+      }
+    }
+    &.right {
+      width: 150px;
+      height: 0px;
+      right: 0;
+      transform: translateX(50%);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      background-color: rgb(180, 180, 180);
+      cursor: pointer;
+      -webkit-box-shadow: inset -20px 20px 76px -24px rgba(66, 68, 90, 1);
+      -moz-box-shadow: inset -20px 20px 76px -24px rgba(66, 68, 90, 1);
+      box-shadow: inset -20px 20px 76px -24px rgba(66, 68, 90, 1);
+      @media only screen and (max-width: 640px) {
+        width: 100px;
+      }
+      &:hover {
+        opacity: 0.99;
+        transition: 0.2s ease-in-out;
+      }
+    }
+  }
+  .toggle-button {
+    bottom: 0px;
+    transition: 0.4s ease-in-out;
+  }
+}
+</style>
