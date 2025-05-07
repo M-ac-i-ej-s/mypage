@@ -2,13 +2,13 @@
   <div class="navbar">
     <div class="navbar-menu">
       <div class="navbar-menu left">
-        <v-icon class="menu-icon" color="success" icon="mdi-home" size="x-large" />
+        <v-icon class="menu-icon" icon="mdi-information" size="x-large" />
       </div>
       <div class="navbar-menu mid">
-        <v-icon class="menu-icon" color="success" icon="mdi-home" size="x-large" />
+        <v-icon class="menu-icon" icon="mdi-home" size="x-large" />
       </div>
       <div class="navbar-menu right">
-        <v-icon class="menu-icon" color="success" icon="mdi-home" size="x-large" />
+        <v-icon class="menu-icon" icon="mdi-store" size="x-large" />
       </div>
     </div>
 
@@ -26,6 +26,7 @@
 
 <script lang="ts">
   export default {
+    name: 'NavBar',
     data () {
       return {
         isOpen: false,
@@ -88,11 +89,14 @@
     left: 50%;
     transform: translateX(-50%);
     bottom: -110px;
-    height: 360px;
+    height: 200px;
     width: 450px;
-    opacity: 0.3;
     border-radius: 200px;
     transition: 0.4s ease-in-out;
+    .menu-icon {
+      margin: 60px 0px 0px 0px;
+      color: rgb(88, 86, 86);
+    }
     @media only screen and (max-width: 640px) {
       width: 300px;
       bottom: -125px;
@@ -104,16 +108,20 @@
       transform: translateX(0);
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      background-color: rgb(180, 180, 180);
       cursor: pointer;
-      -webkit-box-shadow: inset 20px 20px 76px -24px rgba(66, 68, 90, 1);
-      -moz-box-shadow: inset 20px 20px 76px -24px rgba(66, 68, 90, 1);
-      box-shadow: inset 20px 20px 76px -24px rgba(66, 68, 90, 1);
+      -webkit-box-shadow: inset 30px 43px 87px -51px rgba(66, 68, 90, 1);
+      -moz-box-shadow: inset 30px 43px 87px -51px rgba(66, 68, 90, 1);
+      box-shadow: inset 30px 43px 87px -51px rgba(66, 68, 90, 1);
+      .menu-icon {
+        padding: 40px 0 0 10px;
+        transform: rotate(315deg);
+
+      }
       @media only screen and (max-width: 640px) {
         width: 100px;
       }
       &:hover {
-        opacity: 0.99;
+        background-color: rgb(218, 217, 217);
         transition: 0.2s ease-in-out;
       }
     }
@@ -123,16 +131,15 @@
       left: 50%;
       transform: translateX(-50%);
       border-radius: 0px;
-      background-color: rgb(180, 180, 180);
       cursor: pointer;
-      -webkit-box-shadow: inset 0px 20px 76px -24px rgba(66, 68, 90, 1);
-      -moz-box-shadow: inset 0px 20px 76px -24px rgba(66, 68, 90, 1);
-      box-shadow: inset 0px 20px 76px -24px rgba(66, 68, 90, 1);
+      -webkit-box-shadow: inset -1px 72px 87px -76px rgba(66, 68, 90, 1);
+      -moz-box-shadow: inset -1px 72px 87px -76px rgba(66, 68, 90, 1);
+      box-shadow: inset -1px 72px 87px -76px rgba(66, 68, 90, 1);
       @media only screen and (max-width: 640px) {
         width: 100px;
       }
       &:hover {
-        opacity: 0.99;
+        background-color: rgb(218, 217, 217);
         transition: 0.2s ease-in-out;
       }
     }
@@ -143,16 +150,19 @@
       transform: translateX(50%);
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      background-color: rgb(180, 180, 180);
       cursor: pointer;
-      -webkit-box-shadow: inset -20px 20px 76px -24px rgba(66, 68, 90, 1);
-      -moz-box-shadow: inset -20px 20px 76px -24px rgba(66, 68, 90, 1);
-      box-shadow: inset -20px 20px 76px -24px rgba(66, 68, 90, 1);
+      -webkit-box-shadow: inset -30px 43px 87px -51px rgba(66, 68, 90, 1);
+      -moz-box-shadow: inset -30px 43px 87px -51px rgba(66, 68, 90, 1);
+      box-shadow: inset -30px 43px 87px -51px rgba(66, 68, 90, 1);
+      .menu-icon {
+        padding: 40px 10px 0 0;
+        transform: rotate(45deg);
+      }
       @media only screen and (max-width: 640px) {
         width: 100px;
       }
       &:hover {
-        opacity: 0.99;
+        background-color: rgb(218, 217, 217);
         transition: 0.2s ease-in-out;
       }
     }
