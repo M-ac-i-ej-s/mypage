@@ -108,6 +108,7 @@
       transform: translateX(0);
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+      background-color: rgb(247, 247, 247);
       cursor: pointer;
       -webkit-box-shadow: inset 30px 43px 87px -51px rgba(66, 68, 90, 1);
       -moz-box-shadow: inset 30px 43px 87px -51px rgba(66, 68, 90, 1);
@@ -132,6 +133,7 @@
       transform: translateX(-50%);
       border-radius: 0px;
       cursor: pointer;
+      background-color: rgb(247, 247, 247);
       -webkit-box-shadow: inset -1px 72px 87px -76px rgba(66, 68, 90, 1);
       -moz-box-shadow: inset -1px 72px 87px -76px rgba(66, 68, 90, 1);
       box-shadow: inset -1px 72px 87px -76px rgba(66, 68, 90, 1);
@@ -151,6 +153,7 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       cursor: pointer;
+      background-color: rgb(247, 247, 247);
       -webkit-box-shadow: inset -30px 43px 87px -51px rgba(66, 68, 90, 1);
       -moz-box-shadow: inset -30px 43px 87px -51px rgba(66, 68, 90, 1);
       box-shadow: inset -30px 43px 87px -51px rgba(66, 68, 90, 1);

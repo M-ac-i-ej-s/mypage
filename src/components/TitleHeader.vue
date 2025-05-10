@@ -27,7 +27,6 @@
 .title-header {
     font-size: 4rem;
     font-weight: bold;
-    font-family: Arvo;
     color: transparent;
     background-image: url('../assets/background.png');
     background-size: 200%; /* Enlarged for smooth animation */
@@ -35,7 +34,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: animate-background 3s infinite alternate linear;
+    animation: animate-background 5s infinite alternate linear;
 }
 
 @keyframes animate-background {

@@ -8,9 +8,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    InfoSign: typeof import('./components/InfoSign.vue')['default']
     NavBar: typeof import('./components/NavBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TitleHeader: typeof import('./components/TitleHeader.vue')['default']
+    WelcomeSign: typeof import('./components/WelcomeSign.vue')['default']
   }
 }

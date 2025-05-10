@@ -8,6 +8,10 @@
   </v-app>
 </template>
 
-<script lang="ts">
-  //
-</script>
+<style>
+html {
+  font-family: Inter;
+  color: #0B1215;
+  background-color: #FAF9F6;
+}
+</style>
