@@ -41,6 +41,29 @@
           this.toggleMenu(true)
         }
       })
+      window.addEventListener('scroll', () => {
+        console.log('scroll')
+        const rect = toggleButton.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+
+        const elementBehind = document.elementFromPoint(x, y) as HTMLElement;
+        const bgColor = getComputedStyle(elementBehind).backgroundColor;
+
+        // Update box style
+        toggleButton.style.backgroundColor = bgColor;
+
+        // Optional: switch text color for readability
+        const match = bgColor.match(/\d+/g);
+        let [r, g, b] = [0, 0, 0];
+        if (match) {
+          [r, g, b] = match.map(Number);
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+          toggleButton.style.color = brightness < 128 ? 'white' : 'black';
+        }
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        toggleButton.style.color = brightness < 128 ? 'white' : 'black';
+      });
     },
     methods: {
       toggleMenu (forceClose: boolean = false) {

@@ -1,11 +1,13 @@
 <template lang="">
   <div class="welcome-sign-container">
     <div>
-      <h1>It's time for a change.</h1>
-      <h2>Let us help!</h2>
+      <h1 class="animate__animated animate__fadeInLeft">It's time for a change.</h1>
+      <h2 class="second-tier-text animate__animated animate__fadeInLeft animate__delay-1s">Let us help!</h2>
     </div>
-    <div class="welcome-sign-button">
-      <v-btn class="welcome-sign-button-value" color="#0B1215" icon="mdi-arrow-down" />
+    <div class="welcome-sign-button animate__animated animate__fadeInUp animate__delay-2s">
+      <v-btn class="welcome-sign-button-value" color="#0B1215" height="48" width="200" rounded>
+        Let's go!&nbsp;<v-icon icon="mdi-arrow-down" />
+      </v-btn>
     </div>
   </div>
 </template>
@@ -16,7 +18,7 @@
 </script>
 <style lang="scss">
 .welcome-sign-container {
-    padding: 200px 0 300px 0;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -24,7 +26,7 @@
     justify-content: center;
     align-content: center;
     font-family: Inter;
-    font-size: 2rem;
+    font-size: 2.5rem;
     gap: 100px;
     .welcome-sign-button {
       display: flex;
