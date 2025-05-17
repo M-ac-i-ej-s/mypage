@@ -34,6 +34,13 @@
         </div>
       </div>
     </v-lazy>
+    <v-lazy>
+      <div class="info-sign-button">
+        <v-btn class="info-sign-button-value" color="#FAF9F6" height="48" width="200" rounded>
+          But why?&nbsp;<v-icon icon="mdi-arrow-down" />
+        </v-btn>
+      </div>
+    </v-lazy>
   </div>
 </template>
 <script lang="ts">
@@ -72,28 +79,25 @@
     color: #FAF9F6;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     font-family: Inter;
-    font-size: 2rem;
+    font-size: 1.7rem;
     background-color: #0B1215;
     gap: 50px;
-    .info-sign-text {
-      padding: 0 0 25px 0;
-    }
     .info-cards-container {
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
       justify-content: center;
       align-content: center;
+      padding: 30px 0 0 0;
       gap: 30px;
       .info-card {
         position: relative;
-        width: 400px;
-        height: 500px;
+        width: 300px;
+        height: 400px;
         background-color: rgb(116, 116, 116, 0.1);
         box-shadow: 0px 0px 24px 0px rgba(116, 116, 116, 0.2);
         transition: 0.4s ease-in-out;
@@ -108,7 +112,7 @@
           left: 50%;
           transform: translate3d(-50%, -50%, 0);
           top: 50%;
-          font-size: 11rem;
+          font-size: 9rem;
           font-weight: 900;
           color: rgb(250, 249, 246, 0.8);
           transition: 0.4s ease-in-out;
@@ -119,6 +123,15 @@
           filter: blur(3px);
           transition: 0.5s ease-in-out;
         }
+      }
+    }
+    .info-sign-button {
+      padding: 30px 0 0 0;
+      display: flex;
+      justify-content: center;
+      .info-sign-button-value {
+        animation: animate-icon-down 1.5s infinite alternate linear;
+        font-weight: 800;
       }
     }
 }

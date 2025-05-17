@@ -44,25 +44,17 @@
       window.addEventListener('scroll', () => {
         console.log('scroll')
         const rect = toggleButton.getBoundingClientRect();
-        const x = rect.left + rect.width / 2;
-        const y = rect.top + rect.height / 2;
-
+        const x = 100;
+        const y = rect.bottom - 100;
+        console.log(rect.top)
         const elementBehind = document.elementFromPoint(x, y) as HTMLElement;
-        const bgColor = getComputedStyle(elementBehind).backgroundColor;
-
-        // Update box style
-        toggleButton.style.backgroundColor = bgColor;
-
-        // Optional: switch text color for readability
-        const match = bgColor.match(/\d+/g);
-        let [r, g, b] = [0, 0, 0];
-        if (match) {
-          [r, g, b] = match.map(Number);
-          const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-          toggleButton.style.color = brightness < 128 ? 'white' : 'black';
+        if (!(elementBehind instanceof HTMLElement)) {
+          return
         }
-        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-        toggleButton.style.color = brightness < 128 ? 'white' : 'black';
+        const bgColor = getComputedStyle(elementBehind).backgroundColor;
+        console.log(elementBehind)
+        console.log('bgColor', bgColor)
+        toggleButton.style.color = !bgColor.includes('0') ? 'white' : 'black'
       });
     },
     methods: {
