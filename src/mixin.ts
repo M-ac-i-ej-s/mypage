@@ -1,16 +1,12 @@
 export default {
   methods: {
-    scrollTo (pixel: number) {
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-      const clientHeight = document.documentElement.clientHeight || document.body.clientHeight
-      const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight
-      if (scrollTop + clientHeight >= scrollHeight) {
-        return
-      }
+    scrollElementBottomToTop (element: string) {
+      const HTMLDOMelement = document.querySelector(element);
+      const bottom = HTMLDOMelement.getBoundingClientRect().bottom + window.scrollY;
       window.scrollTo({
-        top: pixel,
+        top: bottom,
         behavior: 'smooth',
-      })
-    }
+      });
+    },
   },
 }

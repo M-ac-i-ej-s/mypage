@@ -37,36 +37,29 @@
       const toggleButton = document.querySelector('.toggle-button') as HTMLElement
       document.addEventListener('click', event => {
         if (!menu.contains(event.target as Node) && !toggleButton.contains(event.target as Node)) {
-          console.log('click outside')
           this.toggleMenu(true)
         }
       })
       window.addEventListener('scroll', () => {
-        console.log('scroll')
         const rect = toggleButton.getBoundingClientRect();
         const x = 100;
         const y = rect.bottom - 100;
-        console.log(rect.top)
         const elementBehind = document.elementFromPoint(x, y) as HTMLElement;
         if (!(elementBehind instanceof HTMLElement)) {
           return
         }
         const bgColor = getComputedStyle(elementBehind).backgroundColor;
-        console.log(elementBehind)
-        console.log('bgColor', bgColor)
         toggleButton.style.color = !bgColor.includes('0') ? 'white' : 'black'
       });
     },
     methods: {
       toggleMenu (forceClose: boolean = false) {
-        console.log('toggleMenu', forceClose)
         if (forceClose === true) {
           this.isOpen = false
         } else {
           this.isOpen = !this.isOpen
         }
         // eslint-disable-next-line no-undef
-        console.log('toggleMenu', this.isOpen)
         const menu = document.querySelectorAll('.navbar-menu') as NodeListOf<HTMLElement>
         const toggleButton = document.querySelector('.toggle-button') as HTMLElement
         if (this.isOpen) {

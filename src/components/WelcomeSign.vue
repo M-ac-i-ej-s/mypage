@@ -11,7 +11,7 @@
         height="48"
         rounded
         width="200"
-        @click="scrollTo(953)"
+        @click="scrollElementBottomToTop('.welcome-sign-container')"
       >
         Let's go!&nbsp;<v-icon icon="mdi-arrow-down" />
       </v-btn>
@@ -40,6 +40,9 @@
     font-family: Inter;
     font-size: 2.5rem;
     gap: 100px;
+    @media screen and (max-width: 640px) {
+      gap: 50px;
+    }
     .welcome-sign-button {
       display: flex;
       justify-content: center;
@@ -49,7 +52,7 @@
     }
     .welcome-sign-svg {
       position: absolute;
-      bottom: 0;
+      bottom: -1px;
     }
 }
 
