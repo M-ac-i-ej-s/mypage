@@ -104,6 +104,9 @@
     .menu-icon {
       margin: 60px 0px 0px 0px;
       color: rgb(88, 86, 86);
+      @media screen and (max-width: 640px) {
+        margin: 50px 0px 0px 0px;
+      }
     }
     @media only screen and (max-width: 640px) {
       width: 300px;
@@ -112,7 +115,7 @@
     &.left {
       width: 150px;
       height: 0px;
-      left: 0;
+      left: 1px;
       transform: translateX(0);
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
@@ -157,7 +160,7 @@
       width: 150px;
       height: 0px;
       right: 0;
-      transform: translateX(50%);
+      transform: translateX(calc(50% - 1px));
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       cursor: pointer;
