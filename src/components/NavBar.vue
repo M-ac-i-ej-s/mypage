@@ -19,7 +19,7 @@
       variant="text"
       @click="toggleMenu"
     >
-      <v-icon class="toggle-button" icon="mdi-home" size="x-large" />
+      <v-icon class="toggle-button-icon" icon="mdi-home" size="x-large" />
     </v-btn>
   </div>
 </template>
@@ -184,6 +184,7 @@
   .toggle-button {
     bottom: 0px;
     transition: 0.4s ease-in-out;
+    color: #FAF9F6;
   }
 }
 </style>
