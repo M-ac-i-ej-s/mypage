@@ -169,6 +169,9 @@
     font-size: 1.7rem;
     background-color: #0B1215;
     gap: 20px;
+    @media screen and (max-height: 750px) {
+      height: 130vh;
+    }
     .info-sign-text {
       @media screen and (max-width: 640px) {
         display: flex;
@@ -183,12 +186,14 @@
     .info-cards-container {
       position: absolute;
       height: 420px;
+      width: 100%;
       left: calc(50% + 0px);
       bottom: 20px;
       transform: translate3d(-50%, -50%, 0);
       display: flex;
+      justify-content: center;
       gap: 30px;
-      overflow-x: hidden;
+      // overflow-x: hidden;
       transition: 0.4s ease-in-out;
       @media screen and (max-width: 640px) {
         left: calc(50% + 330px);
@@ -200,7 +205,7 @@
         background-color: rgb(116, 116, 116, 0.1);
         // box-shadow: 0px 0px 46px -26px rgba(11, 18, 21, 1);
         transition: 0.4s ease-in-out;
-        margin: auto;
+        // margin: auto;
         border-radius: 24px;
         cursor: pointer;
         &:hover {
