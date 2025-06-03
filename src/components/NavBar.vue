@@ -19,7 +19,7 @@
       variant="text"
       @click="toggleMenu"
     >
-      <v-icon class="toggle-button" icon="mdi-home" size="x-large" />
+      <v-icon class="toggle-button-icon" icon="mdi-home" size="x-large" />
     </v-btn>
   </div>
 </template>
@@ -37,21 +37,29 @@
       const toggleButton = document.querySelector('.toggle-button') as HTMLElement
       document.addEventListener('click', event => {
         if (!menu.contains(event.target as Node) && !toggleButton.contains(event.target as Node)) {
-          console.log('click outside')
           this.toggleMenu(true)
         }
       })
+      window.addEventListener('scroll', () => {
+        const rect = toggleButton.getBoundingClientRect();
+        const x = 100;
+        const y = rect.bottom - 100;
+        const elementBehind = document.elementFromPoint(x, y) as HTMLElement;
+        if (!(elementBehind instanceof HTMLElement)) {
+          return
+        }
+        const bgColor = getComputedStyle(elementBehind).backgroundColor;
+        toggleButton.style.color = !bgColor.includes('0') ? 'white' : 'black'
+      });
     },
     methods: {
       toggleMenu (forceClose: boolean = false) {
-        console.log('toggleMenu', forceClose)
         if (forceClose === true) {
           this.isOpen = false
         } else {
           this.isOpen = !this.isOpen
         }
         // eslint-disable-next-line no-undef
-        console.log('toggleMenu', this.isOpen)
         const menu = document.querySelectorAll('.navbar-menu') as NodeListOf<HTMLElement>
         const toggleButton = document.querySelector('.toggle-button') as HTMLElement
         if (this.isOpen) {
@@ -96,6 +104,9 @@
     .menu-icon {
       margin: 60px 0px 0px 0px;
       color: rgb(88, 86, 86);
+      @media screen and (max-width: 640px) {
+        margin: 50px 0px 0px 0px;
+      }
     }
     @media only screen and (max-width: 640px) {
       width: 300px;
@@ -104,10 +115,11 @@
     &.left {
       width: 150px;
       height: 0px;
-      left: 0;
+      left: 1px;
       transform: translateX(0);
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+      background-color: rgb(247, 247, 247);
       cursor: pointer;
       -webkit-box-shadow: inset 30px 43px 87px -51px rgba(66, 68, 90, 1);
       -moz-box-shadow: inset 30px 43px 87px -51px rgba(66, 68, 90, 1);
@@ -132,6 +144,7 @@
       transform: translateX(-50%);
       border-radius: 0px;
       cursor: pointer;
+      background-color: rgb(247, 247, 247);
       -webkit-box-shadow: inset -1px 72px 87px -76px rgba(66, 68, 90, 1);
       -moz-box-shadow: inset -1px 72px 87px -76px rgba(66, 68, 90, 1);
       box-shadow: inset -1px 72px 87px -76px rgba(66, 68, 90, 1);
@@ -147,10 +160,11 @@
       width: 150px;
       height: 0px;
       right: 0;
-      transform: translateX(50%);
+      transform: translateX(calc(50% - 1px));
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       cursor: pointer;
+      background-color: rgb(247, 247, 247);
       -webkit-box-shadow: inset -30px 43px 87px -51px rgba(66, 68, 90, 1);
       -moz-box-shadow: inset -30px 43px 87px -51px rgba(66, 68, 90, 1);
       box-shadow: inset -30px 43px 87px -51px rgba(66, 68, 90, 1);
@@ -170,6 +184,7 @@
   .toggle-button {
     bottom: 0px;
     transition: 0.4s ease-in-out;
+    color: #FAF9F6;
   }
 }
 </style>

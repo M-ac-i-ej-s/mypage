@@ -1,7 +1,8 @@
 <template>
-  some
+  <WelcomeSign />
+  <InfoSign />
+  <ExplenationSign />
 </template>
 
 <script lang="ts">
-  //
 </script>
