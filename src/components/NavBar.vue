@@ -1,13 +1,13 @@
 <template lang="">
   <div class="navbar">
     <div class="navbar-menu">
-      <div class="navbar-menu left">
+      <div class="navbar-menu left" @click="switchPage('about')">
         <v-icon class="menu-icon" icon="mdi-information" size="x-large" />
       </div>
-      <div class="navbar-menu mid">
+      <div class="navbar-menu mid" @click="switchPage('')">
         <v-icon class="menu-icon" icon="mdi-home" size="x-large" />
       </div>
-      <div class="navbar-menu right">
+      <div class="navbar-menu right" @click="switchPage('store')">
         <v-icon class="menu-icon" icon="mdi-store" size="x-large" />
       </div>
     </div>
@@ -27,6 +27,11 @@
 <script lang="ts">
   export default {
     name: 'NavBar',
+    props: {
+      switchPage: {
+        type: Function,
+      },
+    },
     data () {
       return {
         isOpen: false,
