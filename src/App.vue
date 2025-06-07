@@ -3,9 +3,32 @@
     <v-main>
       <router-view />
     </v-main>
-    <NavBar />
+    <NavBar :switch-page="switchPage" />
+    <PageSwitcher v-if="enable" />
   </v-app>
 </template>
+
+<script lang="ts">
+  export default {
+    name: 'App',
+    data () {
+      return {
+        enable: false,
+      }
+    },
+    methods: {
+      switchPage (page: string) {
+        this.enable = true;
+        setTimeout(() => {
+          this.$router.push(`/${page}`);
+        }, 3000);
+        setTimeout(() => {
+          this.enable = false;
+        }, 6000);
+      },
+    },
+  }
+</script>
 
 <style lang="scss">
 html {
