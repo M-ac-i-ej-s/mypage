@@ -1,5 +1,5 @@
 <template>
-  Hello
+  <Unlock />
 </template>
 
 <script lang="ts">
