@@ -14,6 +14,7 @@ declare module 'vue' {
     PageSwitcher: typeof import('./components/PageSwitcher.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Unlock: typeof import('./components/Unlock.vue')['default']
     WelcomeSign: typeof import('./components/WelcomeSign.vue')['default']
   }
 }
