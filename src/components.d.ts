@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     ExplenationSign: typeof import('./components/ExplenationSign.vue')['default']
     InfoSign: typeof import('./components/InfoSign.vue')['default']
+    MeDescription: typeof import('./components/MeDescription.vue')['default']
     NavBar: typeof import('./components/NavBar.vue')['default']
     PageSwitcher: typeof import('./components/PageSwitcher.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
