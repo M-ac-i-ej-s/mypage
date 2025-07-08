@@ -77,6 +77,7 @@
 <script lang="ts">
   export default {
     name: 'Unlock',
+    emits: ['unlock'],
     data () {
       return {
         password: {
@@ -114,6 +115,9 @@
             setTimeout(() => {
               this.unlocked = true;
             }, 500);
+            setTimeout(() => {
+              this.$emit('unlock');
+            }, 1000);
             const lock1 = document.querySelector('.top-lock-padlock');
             const lock2 = document.querySelector('.bot-lock-padlock');
             const lockText = document.querySelector('.unlock-password-text');
@@ -142,6 +146,9 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  &.fade-out {
+    animation: fadeOutRight 1s ease-in-out forwards;
+  }
   .top-lock-padlock {
     position: relative;
     left: 50%;
@@ -287,6 +294,17 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateX(100%);
   }
 }
 </style>
