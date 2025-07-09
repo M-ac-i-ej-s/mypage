@@ -64,40 +64,33 @@
         </div>
       </div>
     </div>
-    <div class="me-description-projects">
-      <div class="me-description-projects-folder">
-        <div class="me-description-projects-folder-back" />
-        <div class="me-description-projects-folder-front" />
-        <div class="me-description-projects-folder-text">
-          Project 1
-        </div>
-      </div>
-      <div class="me-description-projects-folder">
-        <div class="me-description-projects-folder-back" />
-        <div class="me-description-projects-folder-front" />
-        <div class="me-description-projects-folder-text">
-          Project 1
-        </div>
-      </div>
-      <div class="me-description-projects-folder">
-        <div class="me-description-projects-folder-back" />
-        <div class="me-description-projects-folder-front" />
-        <div class="me-description-projects-folder-text">
-          Project 1
-        </div>
+    <div>
+      <div class="me-description-projects" @click="oneClickTextColored(-1)">
+        <ProjectModal
+          v-for="(project, index) in projects"
+          :key="index"
+          :index="index"
+          :one-click-text-colored="oneClickTextColored"
+          :project="project"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { de } from 'vuetify/locale';
-
   export default {
     name: 'MeDescription',
     data () {
       return {
         isInfoRotated: false,
+        projects: [
+          { name: 'Project 1', description: 'Description of project 1' },
+          { name: 'Project 2', description: 'Description of project 2' },
+          { name: 'Project 3', description: 'Description of project 3' },
+          { name: 'Project 4', description: 'Description of project 4' },
+          { name: 'Project 5', description: 'Description of project 5' },
+        ],
       }
     },
     methods: {
@@ -109,9 +102,15 @@ import { de } from 'vuetify/locale';
           description.classList.remove('animate')
         }, 1500);
       },
-      oneClickTextColored () {
-        const description = document.querySelector('.me-description-projects-folder-text') as HTMLElement
-        description.style.color = '#0B1215'
+      oneClickTextColored (index: number) {
+        const descriptions = document.querySelectorAll('.me-description-projects-folder-text-value') as NodeListOf<HTMLElement>
+        descriptions.forEach((desc, i) => {
+          if (i === index) {
+            desc.style.backgroundColor = '#1425a8';
+          } else {
+            desc.style.backgroundColor = 'transparent';
+          }
+        });
       },
     },
   }
@@ -207,54 +206,6 @@ import { de } from 'vuetify/locale';
             justify-content: center;
             padding: 20px 0;
         }
-    }
-  }
-  .me-description-projects {
-    display: grid;
-    grid-template-columns: repeat(9, minmax(100px, 1fr));
-    grid-template-rows: repeat(5, minmax(100px, 1fr));
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px; // was 30px, but @media had 20px, now default is 20px
-    border: 0.2px solid rgb(211, 210, 210);
-    border-radius: 24px;
-    padding: 20px;
-    background-image: url('/src/assets/wallapaper.jpg');
-    background-size: cover;
-    -webkit-box-shadow: 8px 8px 23px -1px rgba(66, 68, 90, 0.5);
-    -moz-box-shadow: 8px 8px 23px -1px rgba(66, 68, 90, 0.5);
-    box-shadow: 8px 8px 23px -1px rgba(66, 68, 90, 0.5);
-    .me-description-projects-folder {
-      cursor: pointer;
-      .me-description-projects-folder-back {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background-color: #ffe89e;
-        transform: rotate3d(2, -1, 0.25, 30deg);
-        border-radius: 10px;
-        margin-left: 0px;
-        z-index: 1;
-        transition: 0.2s ease-in-out;
-        &:hover {
-          transform: rotate3d(2, -1, 0.35, 45deg);
-          height: 108px;
-          margin-left: 4px;
-        }
-      }
-      .me-description-projects-folder-front {
-        position: relative;
-        background-color: #f7d572;
-        width: 90px;
-        height: 95px;
-        border-radius: 10px;
-        right: 5px;
-      }
-      .me-description-projects-folder-text {
-        text-align: center;
-        color: #FAF9F6;
-      }
     }
   }
 }

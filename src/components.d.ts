@@ -13,6 +13,7 @@ declare module 'vue' {
     MeDescription: typeof import('./components/MeDescription.vue')['default']
     NavBar: typeof import('./components/NavBar.vue')['default']
     PageSwitcher: typeof import('./components/PageSwitcher.vue')['default']
+    ProjectModal: typeof import('./components/ProjectModal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Unlock: typeof import('./components/Unlock.vue')['default']
