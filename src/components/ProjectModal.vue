@@ -19,10 +19,16 @@
       >
         <div class="project-description">
           <div class="photos">
-            <img alt="photo-value" class="photo-value" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" />
-            <img alt="photo-value" class="photo-value" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" />
-            <img alt="photo-value" class="photo-value" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" />
-            <img alt="photo-value" class="photo-value" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" />
+            <img
+              v-for="(photo, index) in project.photos"
+              :key="photo"
+              alt="photo-value"
+              class="photo-value"
+              :src="photo"
+              :style="{ 'transform-origin': tranformOriginValue(index) }"
+              @mouseleave="enlarge(-1)"
+              @mouseover="enlarge(index)"
+            />
           </div>
           <div class="description">
             <h1 class="title">{{ project.name }}</h1>
@@ -72,6 +78,33 @@
         dialog: false,
       };
     },
+    methods: {
+      enlarge (index: number) {
+        const photos = document.querySelectorAll('.photo-value') as NodeListOf<HTMLElement>;
+        photos.forEach((photo, i) => {
+          if (i === index) {
+            photo.style.zIndex = '10';
+            photo.style.transform = 'scale(2.1)';
+          } else {
+            photo.style.zIndex = '1';
+            photo.style.transform = 'scale(1)';
+          }
+        });
+      },
+      tranformOriginValue (index: number) {
+        let tranformOriginValue;
+        if (index === 0) {
+          tranformOriginValue = 'top left';
+        } else if (index === 1) {
+          tranformOriginValue = 'top right';
+        } else if (index === 2) {
+          tranformOriginValue = 'bottom left';
+        } else {
+          tranformOriginValue = 'bottom right';
+        }
+        return tranformOriginValue;
+      },
+    },
   };
 </script>
 
@@ -87,15 +120,17 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
     .photo-value {
+      position: relative;
       width: 320px;
       height: 180px;
-      object-fit: cover;
+      // object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: 0.5s ease-in-out;
+      transform: scale(1);
     }
   }
 }
-
 .me-description-projects {
     display: grid;
     grid-template-columns: repeat(9, minmax(100px, 1fr));
@@ -103,7 +138,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px; 
+    gap: 20px;
     border: 0.2px solid rgb(211, 210, 210);
     border-radius: 24px;
     padding: 20px;

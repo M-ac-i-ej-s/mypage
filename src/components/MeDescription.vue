@@ -85,11 +85,11 @@
       return {
         isInfoRotated: false,
         projects: [
-          { name: 'Project 1', description: 'Description of project 1' },
-          { name: 'Project 2', description: 'Description of project 2' },
-          { name: 'Project 3', description: 'Description of project 3' },
-          { name: 'Project 4', description: 'Description of project 4' },
-          { name: 'Project 5', description: 'Description of project 5' },
+          { name: 'Y-app', description: 'Description of project 1', photos: ['/src/assets/Y-app/titlePage.PNG','/src/assets/Y-app/mainPage.PNG','/src/assets/Y-app/editProfile.PNG','/src/assets/Y-app/search.PNG'] },
+          { name: 'Project 2', description: 'Description of project 2', photos: [] },
+          { name: 'Project 3', description: 'Description of project 3', photos: [] },
+          { name: 'Project 4', description: 'Description of project 4', photos: [] },
+          { name: 'Project 5', description: 'Description of project 5', photos: [] },
         ],
       }
     },
