@@ -1,10 +1,10 @@
 <template lang="">
   <div class="navbar">
     <div class="navbar-menu">
-      <div class="navbar-menu left" @click="switchPage('about')">
+      <div class="navbar-menu left" @click="switchPage('about'); setMenuColor('black')">
         <v-icon class="menu-icon" icon="mdi-information" size="x-large" />
       </div>
-      <div class="navbar-menu mid" @click="switchPage('')">
+      <div class="navbar-menu mid" @click="switchPage(''); setMenuColor('white')">
         <v-icon class="menu-icon" icon="mdi-home" size="x-large" />
       </div>
       <div class="navbar-menu right" @click="switchPage('store')">
@@ -82,6 +82,10 @@
             }
           })
         }
+      },
+      setMenuColor (color: string) {
+        const toggleButton = document.querySelector('.toggle-button') as HTMLElement
+        toggleButton.style.color = color
       },
     },
   }
