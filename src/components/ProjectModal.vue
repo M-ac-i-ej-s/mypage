@@ -216,8 +216,16 @@
         right: 5px;
       }
       .me-description-projects-folder-text {
-        text-align: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        // text-align: center;
         color: #FAF9F6;
+        .me-description-projects-folder-text-value {
+          position: absolute;
+          text-align: center;
+          // padding: 0 0 0 25px;
+        }
       }
     }
   }

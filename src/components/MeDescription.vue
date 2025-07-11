@@ -85,27 +85,56 @@
       return {
         isInfoRotated: false,
         projects: [
-          { name: 'Y-app',
+          {
+            name: 'Y-app',
             link: 'https://github.com/M-ac-i-ej-s/Y-app',
             description: 'Y is an X/twiter clone. With posts, reposts, images, full profile customization etc. UI with a bit of insipiration was desing by me. Search engine allows you to find users as well as posts. To top it off there are notifications that allow users to know if new posts are available.',
             photos: ['/src/assets/Y-app/titlePage.PNG','/src/assets/Y-app/mainPage.PNG','/src/assets/Y-app/visitingProfiles.PNG','/src/assets/Y-app/search.PNG'],
             stack: {
-              frontend: ['Vue 3', 'Vuex', 'Vuetify 3', 'SASS'],
+              frontend: ['Vue 3', 'Vuex', 'Vuetify 3', 'SCSS'],
               backend: ['Node.js', 'Express.js', 'MongoDB', 'socket.io', 'cloudinary'],
             },
           },
-          { name: 'IT-INDER',
+          {
+            name: 'IT-INDER',
             link: 'https://github.com/M-ac-i-ej-s/IT-INDER',
             description: 'The main purpose of the page is to connect developers looking for projects with people who have ideas but lack the time, experience, or knowledge to implement them. The platform uses an algorithm to match users based on their preferred programming languages. If both the idea provider and the developer express interest by \'swiping right\', they are then able to communicate through chat to discuss further details.',
             photos: ['/src/assets/IT-INDER/mainPage.PNG','/src/assets/IT-INDER/chat.PNG','/src/assets/IT-INDER/swipeView.PNG','/src/assets/IT-INDER/match.gif'],
             stack: {
-              frontend: ['React', 'TypeScript', 'SASS'],
+              frontend: ['React', 'TypeScript', 'SCSS'],
               backend: ['Node.js', 'Express.js', 'MongoDB', 'socket.io'],
             },
           },
-          { name: 'Project 3', description: 'Description of project 3', photos: [] },
-          { name: 'Project 4', description: 'Description of project 4', photos: [] },
-          { name: 'Project 5', description: 'Description of project 5', photos: [] },
+          {
+            name: 'Sales Manager',
+            link: 'https://github.com/M-ac-i-ej-s/Sales-manager-app',
+            description: 'A lightweight application that allows users to create fully customizable catalogs, complete with powerful search and filtering features for an optimal user experience – all wrapped in a clean, simple, and effective design.',
+            photos: ['/src/assets/Sales-manager-app/mainPage.PNG','/src/assets/Sales-manager-app/SimpleAbout.PNG','/src/assets/Sales-manager-app/catalog.PNG','/src/assets/Sales-manager-app/addForm.PNG'],
+            stack: {
+              frontend: ['Vue', 'Vuetify', 'SCSS'],
+              backend: ['json-server'],
+            },
+          },
+          {
+            name: 'Address book',
+            link: 'https://github.com/M-ac-i-ej-s/Address-book',
+            description: 'Simple employees manager with implmented progresive web application features enabling download and offline usage.',
+            photos: ['/src/assets/PWA-example/mainPage.PNG','/src/assets/PWA-example/editForm.PNG','/src/assets/PWA-example/downloadblePage.PNG','/src/assets/PWA-example/confirmation.PNG'],
+            stack: {
+              frontend: ['Vue', 'Vuetify', 'SCSS'],
+              backend: ['json-server'],
+            },
+          },
+          {
+            name: 'Knight game',
+            link: 'https://github.com/M-ac-i-ej-s/Knight-the-defend-game',
+            description: 'My first ever bigger project (spaghetti code alert!). Music was played and graphic was design by me, that)\'s the part i like to focus on. Everyhing was coded using pygame.',
+            photos: ['/src/assets/Knight-Game/mainPage.PNG','/src/assets/Knight-Game/settings.PNG','/src/assets/Knight-Game/play.PNG','/src/assets/Knight-Game/highscore.PNG'],
+            stack: {
+              frontend: ['Python'],
+              backend: ['Python as well:)'],
+            },
+          },
         ],
       }
     },
