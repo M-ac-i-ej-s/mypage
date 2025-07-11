@@ -17,40 +17,56 @@
       <v-card
         max-width="1200"
       >
+        <v-card-title class="d-flex align-end flex-column">
+          <v-btn
+            icon="mdi-close"
+            variant="text"
+            @click="dialog = false"
+          ></v-btn>
+        </v-card-title>
         <div class="project-description">
-          <div class="photos">
-            <img
-              v-for="(photo, index) in project.photos"
-              :key="photo"
-              alt="photo-value"
-              class="photo-value"
-              :src="photo"
-              :style="{ 'transform-origin': tranformOriginValue(index) }"
-              @mouseleave="enlarge(-1)"
-              @mouseover="enlarge(index)"
-            />
-          </div>
           <div class="description">
-            <h1 class="title">{{ project.name }}</h1>
-            <p>
+            <h1 class="title">
+              <a class="title-link" :href="project.link" target="_blank">{{ project.name }}</a>
+            </h1>
+            <p class="description-value">
               {{ project.description }}
             </p>
             <h1>
               Stack:
             </h1>
+            <div class="description-value">
+              <div class="description-value-container">
+                <p>Frontend:</p>
+                <div class="description-value-container-chips">
+                  <v-chip v-for="technology in project.stack.frontend" :key="technology">
+                    {{ technology }}
+                  </v-chip>
+                </div>
+              </div>
+              <div class="description-value-container">
+                <p>Backend:</p>
+                <div class="description-value-container-chips">
+                  <v-chip v-for="technology in project.stack.backend" :key="technology">
+                    {{ technology }}
+                  </v-chip>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="photos">
+            <img
+              v-for="(photo, indexPhoto) in project.photos"
+              :key="photo"
+              alt="photo-value"
+              class="photo-value"
+              :src="photo"
+              :style="{ 'transform-origin': tranformOriginValue(indexPhoto) }"
+              @mouseleave="enlarge(-1)"
+              @mouseover="enlarge(indexPhoto)"
+            />
           </div>
         </div>
-        <template #actions>
-          <v-btn
-            class="ms-auto"
-            color="#0B1215"
-            full-width
-            text="Zamknij"
-            variant="tonal"
-            width="100%"
-            @click="dialog = false"
-          />
-        </template>
       </v-card>
     </v-dialog>
   </div>
@@ -112,8 +128,9 @@
 .project-description {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
+   align-items: center;
    gap: 20px;
-   padding: 30px;
+   padding: 0 40px 60px 40px;
   .photos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -126,8 +143,33 @@
       // object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: 0.5s ease-in-out;
+      transition: 0.4s ease-in-out;
       transform: scale(1);
+    }
+  }
+  .description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .title-link {
+      color: #0B1215;
+    }
+    .description-value {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 0 10px;
+      .description-value-container {
+        display: flex;
+        gap: 10px;
+        .description-value-container-chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+      }
     }
   }
 }

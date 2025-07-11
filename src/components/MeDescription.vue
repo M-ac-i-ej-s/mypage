@@ -85,8 +85,24 @@
       return {
         isInfoRotated: false,
         projects: [
-          { name: 'Y-app', description: 'Description of project 1', photos: ['/src/assets/Y-app/titlePage.PNG','/src/assets/Y-app/mainPage.PNG','/src/assets/Y-app/editProfile.PNG','/src/assets/Y-app/search.PNG'] },
-          { name: 'Project 2', description: 'Description of project 2', photos: [] },
+          { name: 'Y-app',
+            link: 'https://github.com/M-ac-i-ej-s/Y-app',
+            description: 'Y is an X/twiter clone. With posts, reposts, images, full profile customization etc. UI with a bit of insipiration was desing by me. Search engine allows you to find users as well as posts. To top it off there are notifications that allow users to know if new posts are available.',
+            photos: ['/src/assets/Y-app/titlePage.PNG','/src/assets/Y-app/mainPage.PNG','/src/assets/Y-app/visitingProfiles.PNG','/src/assets/Y-app/search.PNG'],
+            stack: {
+              frontend: ['Vue 3', 'Vuex', 'Vuetify 3', 'SASS'],
+              backend: ['Node.js', 'Express.js', 'MongoDB', 'socket.io', 'cloudinary'],
+            },
+          },
+          { name: 'IT-INDER',
+            link: 'https://github.com/M-ac-i-ej-s/IT-INDER',
+            description: 'The main purpose of the page is to connect developers looking for projects with people who have ideas but lack the time, experience, or knowledge to implement them. The platform uses an algorithm to match users based on their preferred programming languages. If both the idea provider and the developer express interest by \'swiping right\', they are then able to communicate through chat to discuss further details.',
+            photos: ['/src/assets/IT-INDER/mainPage.PNG','/src/assets/IT-INDER/chat.PNG','/src/assets/IT-INDER/swipeView.PNG','/src/assets/IT-INDER/match.gif'],
+            stack: {
+              frontend: ['React', 'TypeScript', 'SASS'],
+              backend: ['Node.js', 'Express.js', 'MongoDB', 'socket.io'],
+            },
+          },
           { name: 'Project 3', description: 'Description of project 3', photos: [] },
           { name: 'Project 4', description: 'Description of project 4', photos: [] },
           { name: 'Project 5', description: 'Description of project 5', photos: [] },
