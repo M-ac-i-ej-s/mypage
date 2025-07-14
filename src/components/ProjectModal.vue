@@ -184,11 +184,27 @@
     border: 0.2px solid rgb(211, 210, 210);
     border-radius: 24px;
     padding: 20px;
-    background-image: url('/src/assets/wallapaper.jpg');
+    // background-image: url('/src/assets/wallapaper.jpg');
+    // background: #09806A;
+    background: linear-gradient(156deg,rgba(9, 128, 106, 1) 22%, rgba(184, 184, 184, 0.44) 78%);
     background-size: cover;
     -webkit-box-shadow: 8px 8px 23px -1px rgba(66, 68, 90, 0.5);
     -moz-box-shadow: 8px 8px 23px -1px rgba(66, 68, 90, 0.5);
     box-shadow: 8px 8px 23px -1px rgba(66, 68, 90, 0.5);
+    .me-description-projects-options {
+      grid-row-start: 5;
+      grid-column-start: 9;
+      justify-self: center;
+      .me-description-projects-options-icon {
+        font-size: 3rem;
+        color: #616a6b;
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
+        &:hover {
+          transform: rotate(180deg);
+        }
+      }
+    }
     .me-description-projects-folder {
       cursor: pointer;
       .me-description-projects-folder-back {

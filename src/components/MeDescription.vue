@@ -2,14 +2,18 @@
   <div class="me-description">
     <div class="me-description-info">
       <div class="me-description-info-photo">
-        <img alt="me-description-photo" class="me-description-info-photo-value" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" />
+        <img alt="me-description-photo" class="me-description-info-photo-value" src="/src/assets/mePhoto.jpg" />
       </div>
       <div class="me-description-info-links">
         <div class="me-description-info-links-pins">
-          <v-icon class="me-description-info-links-pins-value" color="#FAF9F6" icon="mdi-github" />
+          <a href="https://github.com/M-ac-i-ej-s" target="_blank">
+            <v-icon class="me-description-info-links-pins-value" color="#FAF9F6" icon="mdi-github" />
+          </a>
         </div>
         <div class="me-description-info-links-pins">
-          <v-icon class="me-description-info-links-pins-value" color="#FAF9F6" icon="mdi-linkedin" />
+          <a href="https://www.linkedin.com/in/maciej-s%C5%82upianek-686246237/" target="_blank">
+            <v-icon class="me-description-info-links-pins-value" color="#FAF9F6" icon="mdi-linkedin" />
+          </a>
         </div>
       </div>
       <div class="me-description-info-description">
@@ -73,6 +77,25 @@
           :one-click-text-colored="oneClickTextColored"
           :project="project"
         />
+        <div class="me-description-projects-options">
+          <v-menu location="top right" transition="slide-y-transition">
+            <template v-slot:activator="{ props }">
+              <v-icon class="me-description-projects-options-icon" icon="mdi-cog" v-bind="props" />
+            </template>
+
+            <div class="me-description-projects-options-menu">
+              <v-btn
+                color="#0B1215"
+                height="48"
+                rounded
+                width="200"
+                @click="changeWallpaper"
+              >
+                Change wallpaper
+              </v-btn>
+            </div>
+          </v-menu>
+        </div>
       </div>
     </div>
   </div>
@@ -136,6 +159,7 @@
             },
           },
         ],
+        wallpaperChangd: false,
       }
     },
     methods: {
@@ -157,6 +181,18 @@
           }
         });
       },
+      changeWallpaper () {
+        const wallpaper = document.querySelector('.me-description-projects') as HTMLElement
+        const cog = document.querySelector('.me-description-projects-options-icon') as HTMLElement
+        if (this.wallpaperChangd) {
+          wallpaper.style.backgroundImage = ''
+          cog.style.color = '#616a6b'
+        } else {
+          wallpaper.style.backgroundImage = 'url(\'/src/assets/wallapaper.jpg\')'
+          cog.style.color = '#FAF9F6'
+        }
+        this.wallpaperChangd = !this.wallpaperChangd
+      }
     },
   }
 </script>
