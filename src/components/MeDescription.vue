@@ -205,6 +205,10 @@
   gap: 50px; // was 20px, @media had 30px, now default is 30px
   width: 100%;
   height: 100%;
+  @media screen and (max-width: 1250px) {
+    flex-direction: column;
+    padding: 10px 0 100px 0;
+  }
   .me-description-info {
     display: flex;
     flex-direction: column;
@@ -255,11 +259,17 @@
         padding: 0 37px 0 37px;
         width: 400px; // was 500px, @media had 400px, now default is 400px
         animation: none;
+        @media screen and (max-width: 450px) {
+          width: 320px;
+        }
         .me-description-info-description-value {
             padding: 10px 0 0 0;
             font-size: 1.2rem; // was 1.3rem, @media had 1.2rem, now default is 1.2rem
             font-weight: 700;
             height: 275px; // was 265px, @media had 275px, now default is 275px
+            @media screen and (max-width: 450px) {
+              font-size: 1rem;
+            }
             &.animate {
               animation: descriptionAnimation 1.5s ease-in forwards;
             }
@@ -286,6 +296,11 @@
             display: flex;
             justify-content: center;
             padding: 20px 0;
+            .welcome-sign-button-value {
+              @media screen and (max-width: 450px) {
+                font-size: 0.7rem;
+              }
+            }
         }
     }
   }
