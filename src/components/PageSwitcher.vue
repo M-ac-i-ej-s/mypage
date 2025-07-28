@@ -58,7 +58,7 @@
     99% {
         transform: scale(1);
     }
-    99.9% {
+    99% {
         opacity: 1;
     }
     100% {

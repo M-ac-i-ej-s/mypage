@@ -61,7 +61,7 @@
               alt="photo-value"
               class="photo-value"
               :src="photo"
-              :style="{ 'transform-origin': tranformOriginValue(indexPhoto) }"
+              :style="{ 'transform-origin': tranformOriginValue(indexPhoto), 'width': photo.includes('KNIGHT') ? '100px' : '320px' }"
               @mouseleave="enlarge(-1)"
               @mouseover="enlarge(indexPhoto)"
             />
