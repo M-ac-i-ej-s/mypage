@@ -2,14 +2,18 @@
   <div class="me-description">
     <div class="me-description-info">
       <div class="me-description-info-photo">
-        <img alt="me-description-photo" class="me-description-info-photo-value" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" />
+        <img alt="me-description-photo" class="me-description-info-photo-value" src="/src/assets/mePhoto.jpg" />
       </div>
       <div class="me-description-info-links">
         <div class="me-description-info-links-pins">
-          <v-icon class="me-description-info-links-pins-value" color="#FAF9F6" icon="mdi-github" />
+          <a href="https://github.com/M-ac-i-ej-s" target="_blank">
+            <v-icon class="me-description-info-links-pins-value" color="#FAF9F6" icon="mdi-github" />
+          </a>
         </div>
         <div class="me-description-info-links-pins">
-          <v-icon class="me-description-info-links-pins-value" color="#FAF9F6" icon="mdi-linkedin" />
+          <a href="https://www.linkedin.com/in/maciej-s%C5%82upianek-686246237/" target="_blank">
+            <v-icon class="me-description-info-links-pins-value" color="#FAF9F6" icon="mdi-linkedin" />
+          </a>
         </div>
       </div>
       <div class="me-description-info-description">
@@ -47,7 +51,7 @@
           </div>
           <div class="me-description-info-description-value-container">
             <v-icon color="#0B1215" icon="mdi-file-account-outline" size="large" />
-            <a class="me-description-info-description-value-container-resume" download="resume-Maciej-Słupianek.pdf" href="/src/assets/resume.pdf">resume.pdf</a>
+            <a class="me-description-info-description-value-container-resume" download="resume-Maciej-Słupianek.pdf" href="assets/resume.pdf">resume.pdf</a>
           </div>
         </div>
         <div class="me-description-info-description-button">
@@ -73,6 +77,25 @@
           :one-click-text-colored="oneClickTextColored"
           :project="project"
         />
+        <div class="me-description-projects-options">
+          <v-menu location="top right" transition="slide-y-transition">
+            <template v-slot:activator="{ props }">
+              <v-icon class="me-description-projects-options-icon" icon="mdi-cog" v-bind="props" />
+            </template>
+
+            <div class="me-description-projects-options-menu">
+              <v-btn
+                color="#0B1215"
+                height="48"
+                rounded
+                width="200"
+                @click="changeWallpaper"
+              >
+                Change wallpaper
+              </v-btn>
+            </div>
+          </v-menu>
+        </div>
       </div>
     </div>
   </div>
@@ -89,7 +112,7 @@
             name: 'Y-app',
             link: 'https://github.com/M-ac-i-ej-s/Y-app',
             description: 'Y is an X/twiter clone. With posts, reposts, images, full profile customization etc. UI with a bit of insipiration was desing by me. Search engine allows you to find users as well as posts. To top it off there are notifications that allow users to know if new posts are available.',
-            photos: ['/src/assets/Y-app/titlePage.PNG','/src/assets/Y-app/mainPage.PNG','/src/assets/Y-app/visitingProfiles.PNG','/src/assets/Y-app/search.PNG'],
+            photos: ['/assets/YAPPtitlePage.jpg','/assets/YAPPmainPage.jpg','/assets/YAPPvisitingProfiles.jpg','/assets/YAPPsearch.jpg'],
             stack: {
               frontend: ['Vue 3', 'Vuex', 'Vuetify 3', 'SCSS'],
               backend: ['Node.js', 'Express.js', 'MongoDB', 'socket.io', 'cloudinary'],
@@ -99,7 +122,7 @@
             name: 'IT-INDER',
             link: 'https://github.com/M-ac-i-ej-s/IT-INDER',
             description: 'The main purpose of the page is to connect developers looking for projects with people who have ideas but lack the time, experience, or knowledge to implement them. The platform uses an algorithm to match users based on their preferred programming languages. If both the idea provider and the developer express interest by \'swiping right\', they are then able to communicate through chat to discuss further details.',
-            photos: ['/src/assets/IT-INDER/mainPage.PNG','/src/assets/IT-INDER/chat.PNG','/src/assets/IT-INDER/swipeView.PNG','/src/assets/IT-INDER/match.gif'],
+            photos: ['/assets/ITNDERmainPage.jpg','/assets/ITNDERchat.jpg','/assets/ITNDERswipeView.jpg','/assets/ITNDERmatch.gif'],
             stack: {
               frontend: ['React', 'TypeScript', 'SCSS'],
               backend: ['Node.js', 'Express.js', 'MongoDB', 'socket.io'],
@@ -109,7 +132,7 @@
             name: 'Sales Manager',
             link: 'https://github.com/M-ac-i-ej-s/Sales-manager-app',
             description: 'A lightweight application that allows users to create fully customizable catalogs, complete with powerful search and filtering features for an optimal user experience – all wrapped in a clean, simple, and effective design.',
-            photos: ['/src/assets/Sales-manager-app/mainPage.PNG','/src/assets/Sales-manager-app/SimpleAbout.PNG','/src/assets/Sales-manager-app/catalog.PNG','/src/assets/Sales-manager-app/addForm.PNG'],
+            photos: ['/assets/SALESmainPage.jpg','/assets/SALESSimpleAbout.jpg','/assets/SALEScatalog.jpg','/assets/SALESaddForm.jpg'],
             stack: {
               frontend: ['Vue', 'Vuetify', 'SCSS'],
               backend: ['json-server'],
@@ -119,7 +142,7 @@
             name: 'Address book',
             link: 'https://github.com/M-ac-i-ej-s/Address-book',
             description: 'Simple employees manager with implmented progresive web application features enabling download and offline usage.',
-            photos: ['/src/assets/PWA-example/mainPage.PNG','/src/assets/PWA-example/editForm.PNG','/src/assets/PWA-example/downloadblePage.PNG','/src/assets/PWA-example/confirmation.PNG'],
+            photos: ['/assets/PWAmainPage.jpg','/assets/PWAeditForm.jpg','/assets/PWAdownloadblePage.jpg','/assets/PWAconfirmation.jpg'],
             stack: {
               frontend: ['Vue', 'Vuetify', 'SCSS'],
               backend: ['json-server'],
@@ -129,13 +152,14 @@
             name: 'Knight game',
             link: 'https://github.com/M-ac-i-ej-s/Knight-the-defend-game',
             description: 'My first ever bigger project (spaghetti code alert!). Music was played and graphic was design by me, that)\'s the part i like to focus on. Everyhing was coded using pygame.',
-            photos: ['/src/assets/Knight-Game/mainPage.PNG','/src/assets/Knight-Game/settings.PNG','/src/assets/Knight-Game/play.PNG','/src/assets/Knight-Game/highscore.PNG'],
+            photos: ['/assets/KNIGHTmainPage.jpg','/assets/KNIGHTsettings.jpg','/assets/KNIGHTplay.jpg','/assets/KNIGHThighscore.jpg'],
             stack: {
               frontend: ['Python'],
               backend: ['Python as well:)'],
             },
           },
         ],
+        wallpaperChangd: false,
       }
     },
     methods: {
@@ -157,6 +181,18 @@
           }
         });
       },
+      changeWallpaper () {
+        const wallpaper = document.querySelector('.me-description-projects') as HTMLElement
+        const cog = document.querySelector('.me-description-projects-options-icon') as HTMLElement
+        if (this.wallpaperChangd) {
+          wallpaper.style.backgroundImage = ''
+          cog.style.color = '#616a6b'
+        } else {
+          wallpaper.style.backgroundImage = 'url(\'/assets/wallapaper.jpg\')'
+          cog.style.color = '#FAF9F6'
+        }
+        this.wallpaperChangd = !this.wallpaperChangd
+      }
     },
   }
 </script>
@@ -169,6 +205,10 @@
   gap: 50px; // was 20px, @media had 30px, now default is 30px
   width: 100%;
   height: 100%;
+  @media screen and (max-width: 1250px) {
+    flex-direction: column;
+    padding: 10px 0 100px 0;
+  }
   .me-description-info {
     display: flex;
     flex-direction: column;
@@ -219,11 +259,17 @@
         padding: 0 37px 0 37px;
         width: 400px; // was 500px, @media had 400px, now default is 400px
         animation: none;
+        @media screen and (max-width: 450px) {
+          width: 320px;
+        }
         .me-description-info-description-value {
             padding: 10px 0 0 0;
             font-size: 1.2rem; // was 1.3rem, @media had 1.2rem, now default is 1.2rem
             font-weight: 700;
             height: 275px; // was 265px, @media had 275px, now default is 275px
+            @media screen and (max-width: 450px) {
+              font-size: 1rem;
+            }
             &.animate {
               animation: descriptionAnimation 1.5s ease-in forwards;
             }
@@ -250,6 +296,11 @@
             display: flex;
             justify-content: center;
             padding: 20px 0;
+            .welcome-sign-button-value {
+              @media screen and (max-width: 450px) {
+                font-size: 0.7rem;
+              }
+            }
         }
     }
   }

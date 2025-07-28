@@ -61,7 +61,7 @@
               alt="photo-value"
               class="photo-value"
               :src="photo"
-              :style="{ 'transform-origin': tranformOriginValue(indexPhoto) }"
+              :style="{ 'transform-origin': tranformOriginValue(indexPhoto), 'width': photo.includes('KNIGHT') ? '100px' : '320px' }"
               @mouseleave="enlarge(-1)"
               @mouseover="enlarge(indexPhoto)"
             />
@@ -96,6 +96,9 @@
     },
     methods: {
       enlarge (index: number) {
+        if (window.innerWidth < 810) {
+          return
+        }
         const photos = document.querySelectorAll('.photo-value') as NodeListOf<HTMLElement>;
         photos.forEach((photo, i) => {
           if (i === index) {
@@ -131,11 +134,20 @@
    align-items: center;
    gap: 20px;
    padding: 0 40px 60px 40px;
+   @media screen and (max-width: 1250px) {
+    grid-template-columns: repeat(1, 1fr);
+   }
+   @media screen and (max-width: 450px) {
+    padding: 0 20px 60px 20px;
+   }
   .photos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
+    @media screen and (max-width: 810px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
     .photo-value {
       position: relative;
       width: 320px;
@@ -145,6 +157,23 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: 0.4s ease-in-out;
       transform: scale(1);
+      @media screen and (max-width: 1250px) {
+        &:nth-of-type(1) {
+          justify-self: end;
+        }
+        &:nth-of-type(3) {
+          justify-self: end;
+        }
+      }
+      @media screen and (max-width: 810px) {
+        justify-self: center;
+        &:nth-of-type(1) {
+          justify-self: center;
+        }
+        &:nth-of-type(3) {
+          justify-self: center;
+        }
+      }
     }
   }
   .description {
@@ -184,11 +213,60 @@
     border: 0.2px solid rgb(211, 210, 210);
     border-radius: 24px;
     padding: 20px;
-    background-image: url('/src/assets/wallapaper.jpg');
+    // background-image: url('/src/assets/wallapaper.jpg');
+    // background: #09806A;
+    background: linear-gradient(156deg,rgba(9, 128, 106, 1) 22%, rgba(184, 184, 184, 0.44) 78%);
     background-size: cover;
     -webkit-box-shadow: 8px 8px 23px -1px rgba(66, 68, 90, 0.5);
     -moz-box-shadow: 8px 8px 23px -1px rgba(66, 68, 90, 0.5);
     box-shadow: 8px 8px 23px -1px rgba(66, 68, 90, 0.5);
+    @media screen and (max-width: 1600px) {
+      grid-template-columns: repeat(7, minmax(100px, 1fr));
+    }
+    @media screen and (max-width: 1450px) {
+      grid-template-columns: repeat(6, minmax(100px, 1fr));
+    }
+    @media screen and (max-width: 1350px) {
+      grid-template-columns: repeat(5, minmax(100px, 1fr));
+    }
+    @media screen and (max-width: 1250px) {
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+      gap: 30px
+    }
+    @media screen and (max-width: 450px) {
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
+      gap: 60px;
+      padding: 30px;
+    }
+    .me-description-projects-options {
+      grid-row-start: 5;
+      grid-column-start: 9;
+      @media screen and (max-width: 1600px) {
+        grid-column-start: 7;
+      }
+      @media screen and (max-width: 1450px) {
+        grid-column-start: 6;
+      }
+      @media screen and (max-width: 1350px) {
+        grid-column-start: 5;
+      }
+      @media screen and (max-width: 1250px) {
+        grid-column-start: 3;
+      }
+      @media screen and (max-width: 450px) {
+        grid-column-start: 2;
+      }
+      justify-self: center;
+      .me-description-projects-options-icon {
+        font-size: 3rem;
+        color: #616a6b;
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
+        &:hover {
+          transform: rotate(180deg);
+        }
+      }
+    }
     .me-description-projects-folder {
       cursor: pointer;
       .me-description-projects-folder-back {
